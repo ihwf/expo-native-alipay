@@ -1,31 +1,33 @@
 {
-  "expo": {
-    "name": "expo-native-alipay-example",
-    "slug": "expo-native-alipay-example",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "expo.modules.nativealipay.example"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "expo.modules.nativealipay.example"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "expo": {
+        "name": "expo-native-alipay-example",
+        "slug": "expo-native-alipay-example",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "scheme": ["uiwjspay"],
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "newArchEnabled": true,
+        "splash": {
+            "image": "./assets/splash-icon.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "expo.modules.nativealipay.example",
+            "associatedDomains": ["applinks:(Universal Link Here)"]
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "edgeToEdgeEnabled": true,
+            "package": "expo.modules.nativealipay.example"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        }
     }
-  }
 }

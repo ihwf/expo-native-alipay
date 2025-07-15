@@ -2,7 +2,7 @@
  * @Author: heweifeng
  * @Date: 2025-07-14 14:55:09
  * @LastEditors: heweifeng
- * @LastEditTime: 2025-07-14 15:42:00
+ * @LastEditTime: 2025-07-15 16:50:40
  * @Description:
  */
 import { requireNativeModule } from 'expo'
@@ -35,7 +35,7 @@ const ExpoNativeAlipay = requireNativeModule('ExpoNativeAlipay')
  * @param orderString 支付参数
  * @returns result 支付宝回调结果 https://docs.open.alipay.com/204/105301
  */
-export function pay(orderString: string): Promise<OrderResult> {
+export function alipay(orderString: string): Promise<OrderResult> {
     return ExpoNativeAlipay.pay(orderString)
 }
 
