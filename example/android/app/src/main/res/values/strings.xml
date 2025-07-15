@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">支付宝SDK实例</string>
+  <string name="app_name">expo-native-alipay-example</string>
+  <string name="expo_splash_screen_resize_mode" translatable="false">contain</string>
+  <string name="expo_splash_screen_status_bar_translucent" translatable="false">false</string>
 </resources>

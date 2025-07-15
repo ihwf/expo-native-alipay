@@ -1,57 +1,34 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- */
-
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require('expo/metro-config');
 const path = require('path');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
-const escape = require('escape-string-regexp');
-const pak = require('../package.json');
-const root = path.resolve(__dirname, '..');
 
-const modules = Object.keys({
-  ...pak.peerDependencies,
+const config = getDefaultConfig(__dirname);
+
+// npm v7+ will install ../node_modules/react and ../node_modules/react-native because of peerDependencies.
+// To prevent the incompatible react-native between ./node_modules/react-native and ../node_modules/react-native,
+// excludes the one from the parent folder when bundling.
+config.resolver.blockList = [
+  ...Array.from(config.resolver.blockList ?? []),
+  new RegExp(path.resolve('..', 'node_modules', 'react')),
+  new RegExp(path.resolve('..', 'node_modules', 'react-native')),
+];
+
+config.resolver.nodeModulesPaths = [
+  path.resolve(__dirname, './node_modules'),
+  path.resolve(__dirname, '../node_modules'),
+];
+
+config.resolver.extraNodeModules = {
+  'expo-native-alipay': '..',
+};
+
+config.watchFolders = [path.resolve(__dirname, '..')];
+
+config.transformer.getTransformOptions = async () => ({
+  transform: {
+    experimentalImportSupport: false,
+    inlineRequires: true,
+  },
 });
 
-module.exports = {
-  projectRoot: __dirname,
-  // quick workaround for another issue with symlinks
-  watchFolders: [path.resolve(__dirname, '.'), root],
-  // workaround for an issue with symlinks encountered starting with
-  // metro@0.55 / React Native 0.61
-  // (not needed with React Native 0.60 / metro@0.54)
-  // resolver: {
-  //   extraNodeModules: new Proxy(
-  //     {},
-  //     {get: (_, name) => path.resolve('.', 'node_modules', name)},
-  //   ),
-  // },
-
-  // We need to make sure that only one version is loaded for peerDependencies
-  // So we blacklist them at the root, and alias them to the versions in example's node_modules
-  resolver: {
-    blacklistRE: exclusionList(
-      modules.map(
-        m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
-      ),
-    ),
-    // extraNodeModules: new Proxy(
-    //   {},
-    //   {get: (_, name) => path.resolve('.', 'node_modules', name)},
-    // ),
-
-    extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name);
-      return acc;
-    }, {}),
-  },
-
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
-      },
-    }),
-  },
-};
+module.exports = config;

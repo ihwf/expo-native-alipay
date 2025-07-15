@@ -1,0 +1,10 @@
+{
+    "platforms": ["apple", "android"],
+    "apple": {
+        "modules": ["ExpoNativeAlipayModule"],
+        "appDelegateSubscribers": ["ExpoNativeAlipayDelegate"]
+    },
+    "android": {
+        "modules": ["expo.modules.nativealipay.ExpoNativeAlipayModule"]
+    }
+}

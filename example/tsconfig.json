@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "expo-native-alipay": ["../src/index"],
+      "expo-native-alipay/*": ["../src/*"]
+    }
+  }
+}

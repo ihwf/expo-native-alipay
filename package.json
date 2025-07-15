@@ -1,56 +1,43 @@
 {
-  "name": "@uiw/react-native-alipay",
-  "title": "React Native Alipay",
-  "version": "5.0.2",
-  "description": "基于 React Native 的支付宝插件，支持Android/iOS。",
-  "main": "index.js",
-  "react-native": "index",
-  "typings": "index.d.ts",
-  "files": [
-    "android/libs",
-    "android/src",
-    "android/build.gradle",
-    "react-native-alipay.podspec",
-    "ios",
-    "index.d.ts",
-    "index.js",
-    "README.md"
-  ],
+  "name": "expo-native-alipay",
+  "version": "0.1.0",
+  "description": "A Expo Module for supporting Alipay APIs on Android and iOS",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn && yarn example pods",
-    "build": "typedoc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uiwjs/react-native-alipay.git",
-    "baseUrl": "https://github.com/uiwjs/react-native-alipay"
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module",
+    "open:ios": "xed example/ios",
+    "open:android": "open -a \"Android Studio\" example/android"
   },
   "keywords": [
     "react-native",
-    "alipay",
-    "uiwjs",
-    "uiw",
-    "支付宝",
-    "ios",
-    "android"
+    "expo",
+    "expo-native-alipay",
+    "ExpoNativeAlipay"
   ],
-  "author": {
-    "name": "Kenny Wong",
-    "email": "wowohoo@qq.com"
+  "repository": "https://github.com/ihwf/expo-native-alipay",
+  "bugs": {
+    "url": "https://github.com/ihwf/expo-native-alipay/issues"
   },
+  "author": "heweifeng <iheweifeng@gmail.com> (https://github.com/ihwf)",
   "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
+  "homepage": "https://github.com/ihwf/expo-native-alipay#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "~19.0.0",
+    "expo-module-scripts": "^4.1.9",
+    "expo": "~53.0.0",
+    "react-native": "0.79.1"
+  },
   "peerDependencies": {
+    "expo": "*",
     "react": "*",
     "react-native": "*"
-  },
-  "devDependencies": {
-    "react": "18.0.0",
-    "react-native": "0.69.3",
-    "pod-install": "^0.1.0",
-    "typedoc": "0.20.36",
-    "typescript": "4.2.4"
   }
 }
